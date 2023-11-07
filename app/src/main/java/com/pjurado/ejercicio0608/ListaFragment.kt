@@ -22,6 +22,10 @@ class ListaFragment : Fragment(R.layout.fragment_lista) {
                 )
 
             }
+            floatingActionButton.setOnClickListener {
+                findNavController().navigate(R.id.action_listaFragment_to_modificarFragment,
+                    bundleOf(ModificarFragment.POS to -1))
+            }
         }
     }
 
@@ -31,7 +35,9 @@ class ListaFragment : Fragment(R.layout.fragment_lista) {
     }
 
     fun onModificar(posicion: Int) {
-        //findNavController().navigate(R.id.action_listaFragment_to_detalleFragment)
+        findNavController().navigate(
+            R.id.action_listaFragment_to_modificarFragment,
+            bundleOf(ModificarFragment.POS to posicion))
         //TaskManager.modifyTask(posicion, "Tarea modificada")
     }
 
